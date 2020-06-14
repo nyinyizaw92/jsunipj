@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <script src="sketch2.js"></script>
+    <style>
+        /* .image{
+            width: 800px;
+            height: 500px;
+            background-image: url(map.png);
+            position: absolute;
+            margin-top: 7px;
+            margin-left: 62px;
+        }
+
+        #defaultCanvas0{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            margin-top: 25px;
+            opacity:0.3;
+        }
+       #start{
+         width:50px;
+       }
+
+       #second{
+           margin-top: 15px;
+       }
+
+       #end{
+           width:50px;
+           margin-left:5px;
+       }
+
+       #defaultCanvas0{
+           border:1px solid #e6e6e6;
+           margin-top:20px;
+       } */
+       
+    </style>
+</head>
+<body> 
+    <embed src="./Insein.pdf" width="800px" height="2100px" />
+
+    <!-- <iframe src="https://docs.google.com/gview?url=https://path.com/to/./Insein.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1uHGkos1eKi2wIk2Myb1XHAOzlrwwYH1x" width="640" height="480"></iframe> -->
+    <p id="info"></p>
+    <div id="first">
+        <label for="start poiint">Start point</label>
+        <select id="start" onchange="getval()">choose....
+            <option value="0">choose</option>
+            <option value="0,0">0,0</option>
+            <option value="0,1">0,1</option>
+            <option value="0,2">0,2</option>
+            <option value="0,3">0,3</option>
+            <option value="0,4">0,4</option>
+            <option value="0,5">0,5</option>
+            <option value="0,6">0,6</option>
+            <option value="0,7">0,7</option>
+            <option value="0,8">0,8</option>
+            <option value="0,9">0,9</option>
+            <option value="1,0">1,0</option>
+            <option value="1,1">1,1</option>
+            <option value="1,2">1,2</option>
+            <option value="1,3">1,3</option>
+            <option value="1,4">1,4</option>
+            <option value="1,5">1,5</option>
+            <option value="1,6">1,6</option>
+            <option value="1,7">1,7</option>
+            <option value="1,8">1,8</option>
+            <option value="1,9">1,9</option>
+            <option value="2,0">2,0</option>
+            <option value="2,1">2,1</option>
+            <option value="2,2">2,2</option>
+            <option value="2,3">2,3</option>
+            <option value="2,4">2,4</option>
+            <option value="2,5">2,5</option>
+            <option value="2,6">2,6</option>
+            <option value="2,7">2,7</option>
+            <option value="2,8">2,8</option>
+            <option value="2,9">2,9</option>
+            <option value="3,0">3,0</option>
+            <option value="3,1">3,1</option>
+            <option value="3,2">3,2</option>
+            <option value="3,3">3,3</option>
+            <option value="3,4">3,4</option>
+            <option value="3,5">3,5</option>
+            <option value="3,6">3,6</option>
+            <option value="3,7">3,7</option>
+            <option value="3,8">3,8</option>
+            <option value="3,9">3,9</option>
+            <option value="4,0">4,0</option>
+            <option value="4,1">4,1</option>
+            <option value="4,2">4,2</option>
+            <option value="4,3">4,3</option>
+            <option value="4,4">4,4</option>
+            <option value="4,5">4,5</option>
+            <option value="4,6">4,6</option>
+            <option value="4,7">4,7</option>
+            <option value="4,8">4,8</option>
+            <option value="4,9">4,9</option>
+            <option value="5,0">5,0</option>
+            <option value="5,1">5,1</option>
+            <option value="5,2">5,2</option>
+            <option value="5,3">5,3</option>
+            <option value="5,4">5,4</option>
+            <option value="5,5">5,5</option>
+            <option value="5,6">5,6</option>
+            <option value="5,7">5,7</option>
+            <option value="5,8">5,8</option>
+            <option value="5,9">5,9</option>
+            <option value="6,0">6,0</option>
+            <option value="6,1">6,1</option>
+            <option value="6,2">6,2</option>
+            <option value="6,3">6,3</option>
+            <option value="6,4">6,4</option>
+            <option value="6,5">6,5</option>
+            <option value="6,6">6,6</option>
+            <option value="6,7">6,7</option>
+            <option value="6,8">6,8</option>
+            <option value="6,9">6,9</option>
+            <option value="7,0">7,0</option>
+            <option value="7,1">7,1</option>
+            <option value="7,2">7,2</option>
+            <option value="7,3">7,3</option>
+            <option value="7,4">7,4</option>
+            <option value="7,5">7,5</option>
+            <option value="7,6">7,6</option>
+            <option value="7,7">7,7</option>
+            <option value="7,8">7,8</option>
+            <option value="7,9">7,9</option>
+            <option value="8,0">8,0</option>
+            <option value="8,1">8,1</option>
+            <option value="8,2">8,2</option>
+            <option value="8,3">8,3</option>
+            <option value="8,4">8,4</option>
+            <option value="8,5">8,5</option>
+            <option value="8,6">8,6</option>
+            <option value="8,7">8,7</option>
+            <option value="8,8">8,8</option>
+            <option value="8,9">8,9</option>
+            <option value="9,0">9,0</option>
+            <option value="9,1">9,1</option>
+            <option value="9,2">9,2</option>
+            <option value="9,3">9,3</option>
+            <option value="9,4">9,4</option>
+            <option value="9,5">9,5</option>
+            <option value="9,6">9,6</option>
+            <option value="9,7">9,7</option>
+            <option value="9,8">9,8</option>
+            <option value="9,9">9,9</option>
+        </select>
+    </div>
+
+    <div id="second">
+        <label for="end poiint">End point</label>
+        <select name="end" id="end" onchange="getnextval()">choose....
+            <option value="0">choose</option>
+            <option value="0,0">0,0</option>
+            <option value="0,1">0,1</option>
+            <option value="0,2">0,2</option>
+            <option value="0,3">0,3</option>
+            <option value="0,4">0,4</option>
+            <option value="0,5">0,5</option>
+            <option value="0,6">0,6</option>
+            <option value="0,7">0,7</option>
+            <option value="0,8">0,8</option>
+            <option value="0,9">0,9</option>
+            <option value="1,0">1,0</option>
+            <option value="1,1">1,1</option>
+            <option value="1,2">1,2</option>
+            <option value="1,3">1,3</option>
+            <option value="1,4">1,4</option>
+            <option value="1,5">1,5</option>
+            <option value="1,6">1,6</option>
+            <option value="1,7">1,7</option>
+            <option value="1,8">1,8</option>
+            <option value="1,9">1,9</option>
+            <option value="2,0">2,0</option>
+            <option value="2,1">2,1</option>
+            <option value="2,2">2,2</option>
+            <option value="2,3">2,3</option>
+            <option value="2,4">2,4</option>
+            <option value="2,5">2,5</option>
+            <option value="2,6">2,6</option>
+            <option value="2,7">2,7</option>
+            <option value="2,8">2,8</option>
+            <option value="2,9">2,9</option>
+            <option value="3,0">3,0</option>
+            <option value="3,1">3,1</option>
+            <option value="3,2">3,2</option>
+            <option value="3,3">3,3</option>
+            <option value="3,4">3,4</option>
+            <option value="3,5">3,5</option>
+            <option value="3,6">3,6</option>
+            <option value="3,7">3,7</option>
+            <option value="3,8">3,8</option>
+            <option value="3,9">3,9</option>
+            <option value="4,0">4,0</option>
+            <option value="4,1">4,1</option>
+            <option value="4,2">4,2</option>
+            <option value="4,3">4,3</option>
+            <option value="4,4">4,4</option>
+            <option value="4,5">4,5</option>
+            <option value="4,6">4,6</option>
+            <option value="4,7">4,7</option>
+            <option value="4,8">4,8</option>
+            <option value="4,9">4,9</option>
+            <option value="5,0">5,0</option>
+            <option value="5,1">5,1</option>
+            <option value="5,2">5,2</option>
+            <option value="5,3">5,3</option>
+            <option value="5,4">5,4</option>
+            <option value="5,5">5,5</option>
+            <option value="5,6">5,6</option>
+            <option value="5,7">5,7</option>
+            <option value="5,8">5,8</option>
+            <option value="5,9">5,9</option>
+            <option value="6,0">6,0</option>
+            <option value="6,1">6,1</option>
+            <option value="6,2">6,2</option>
+            <option value="6,3">6,3</option>
+            <option value="6,4">6,4</option>
+            <option value="6,5">6,5</option>
+            <option value="6,6">6,6</option>
+            <option value="6,7">6,7</option>
+            <option value="6,8">6,8</option>
+            <option value="6,9">6,9</option>
+            <option value="7,0">7,0</option>
+            <option value="7,1">7,1</option>
+            <option value="7,2">7,2</option>
+            <option value="7,3">7,3</option>
+            <option value="7,4">7,4</option>
+            <option value="7,5">7,5</option>
+            <option value="7,6">7,6</option>
+            <option value="7,7">7,7</option>
+            <option value="7,8">7,8</option>
+            <option value="7,9">7,9</option>
+            <option value="8,0">8,0</option>
+            <option value="8,1">8,1</option>
+            <option value="8,2">8,2</option>
+            <option value="8,3">8,3</option>
+            <option value="8,4">8,4</option>
+            <option value="8,5">8,5</option>
+            <option value="8,6">8,6</option>
+            <option value="8,7">8,7</option>
+            <option value="8,8">8,8</option>
+            <option value="8,9">8,9</option>
+            <option value="9,0">9,0</option>
+            <option value="9,1">9,1</option>
+            <option value="9,2">9,2</option>
+            <option value="9,3">9,3</option>
+            <option value="9,4">9,4</option>
+            <option value="9,5">9,5</option>
+            <option value="9,6">9,6</option>
+            <option value="9,7">9,7</option>
+            <option value="9,8">9,8</option>
+            <option value="9,9">9,9</option>
+        </select>
+
+       
+    </div>
+    <button onclick="opencanvas()">Start</button> 
+   
+    <!-- <h1>hello world</h1>
+    <a href="https://maori.geek.nz/drawing-maps-with-d3-js-and-other-geographical-fun-3a6eedeb8e3">
+        Drawing Maps with D3.js and Other Geographical Fun
+    </a>
+    <a href="https://programminghistorian.org/en/lessons/using-javascript-to-create-maps">
+        Using js to create map of correspondence
+    </a>
+    <a href="https://towardsdatascience.com/a-star-a-search-algorithm-eb495fb156bb">A-start daily activity</a>
+    <a href="https://medium.com/swlh/data-structures-graphs-50a8a032db03">Data structure Graphs</a>
+    <a href="https://brilliant.org/wiki/shortest-path-algorithms/">about shortest path may be introude use</a>
+    <a href="https://www.geeksforgeeks.org/a-search-algorithm/">Geek for a-start algorithm</a> -->
+<!-- 
+    <div class="image"></div> -->
+</html>
+
